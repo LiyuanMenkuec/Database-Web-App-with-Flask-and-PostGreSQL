@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, send_file
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from send_email import send_email
 from sqlalchemy.sql import func
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 
 app=Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:postgres123@localhost/height_collector'
+#app_url of heruko detabase, add sslmode=require
 app.config['SQLALCHEMY_DATABASE_URI']='postgres://ejwuclujctbntz:2ZvGfcHUFzmasNYi-TwQH6lMgf@ec2-50-17-206-164.compute-1.amazonaws.com:5432/d425fslp62inet?sslmode=require'
 db=SQLAlchemy(app)
 
